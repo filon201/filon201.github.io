@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройка модели</title>
+    <link rel="stylesheet" href="css/Configurator model.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/lisan-logo.png" alt="Лисан Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Назад к выбору модели</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="configurator">
+        <h1>Настройка модели</h1>
+        <div class="details" id="details">
+            <h2>Информация о модели</h2>
+            <div id="model-info">
+                <img id="selected-model-image" src="images/model1.jpg" alt="Выбранная модель">
+                <p>Модель: <span id="selected-model-name">Лисан 1</span></p>
+                <p>Цвет: <span id="selected-color">Красный</span></p>
+                <p>Комплектация: <span id="selected-equipment">Базовая</span></p>
+                <p>Цена: <span id="selected-price">10000$</span></p>
+            </div>
+            <div class="options">
+                <div class="option">
+                    <label for="color">Цвет:</label>
+                    <select id="color">
+                        <option value="red">Красный</option>
+                        <option value="blue">Синий</option>
+                        <option value="black">Черный</option>
+                        <option value="white">Белый</option>
+                    </select>
+                </div>
+                <div class="option">
+                    <label for="equipment">Комплектация:</label>
+                    <select id="equipment">
+                        <option value="base">Базовая</option>
+                        <option value="comfort">Комфорт</option>
+                        <option value="premium">Премиум</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedModel = urlParams.get('model');
+    
+        const selectedModelImage = document.getElementById('selected-model-image');
+        const selectedModelName = document.getElementById('selected-model-name');
+        const colorSelect = document.getElementById('color');
+        const equipmentSelect = document.getElementById('equipment');
+        const selectedColor = document.getElementById('selected-color');
+        const selectedEquipment = document.getElementById('selected-equipment');
+        const selectedPrice = document.getElementById('selected-price');
+    
+        const prices = {
+            model1: { base: 10000, comfort: 12000, premium: 15000 },
+            model2: { base: 11000, comfort: 13000, premium: 16000 },
+            model3: { base: 12000, comfort: 14000, premium: 17000 }
+        };
+    
+        const images = {
+            model1: { red: 'images/model1_red.jpg', blue: 'images/model1_blue.jpg', black: 'images/model1_black.jpg', white: 'images/model1_white.jpg' },
+            model2: { red: 'images/model2_red.jpg', blue: 'images/model2_blue.jpg', black: 'images/model2_black.jpg', white: 'images/model2_white.jpg' },
+            model3: { red: 'images/model3_red.jpg', blue: 'images/model3_blue.jpg', black: 'images/model3_black.jpg', white: 'images/model3_white.jpg' }
+        };
+    
+        function updateDetails() {
+            selectedModelName.textContent = selectedModel.charAt(0).toUpperCase() + selectedModel.slice(1);
+            selectedModelImage.src = images[selectedModel][colorSelect.value];
+            selectedColor.textContent = colorSelect.options[colorSelect.selectedIndex].text;
+            selectedEquipment.textContent = equipmentSelect.options[equipmentSelect.selectedIndex].text;
+            selectedPrice.textContent = prices[selectedModel][equipmentSelect.value] + '$';
+        }
+    
+        colorSelect.addEventListener('change', updateDetails);
+        equipmentSelect.addEventListener('change', updateDetails);
+    
+        // Инициализация предпросмотра
+        updateDetails();
+    });</script>
+</body>
+</html>
