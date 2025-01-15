@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lixiang | DragonDrive</title>
+    <link rel="stylesheet" href="css/Lixiang.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="http://127.0.0.1:5500/Main.html">На главную</a></li>
+                <li><a href="#">Обслуживание</a></li>
+            </ul>
+        </nav>
+        <div class="logo">
+            DragonDrive <span class="logo-chinese">龙驱动</span>
+        </div>
+    </header>
+    <div class="container">
+        <div class="model-nav">
+           <a href="#" data-image="images/lil9.jpg">LiL9</a>
+           <a href="#" data-image="images/lil8.jpg">LiL8</a>
+           <a href="#" data-image="images/lil7.jpg">LiL7</a>
+           <a href="#" data-image="images/lil6.jpg">LiL6</a>
+           <a href="#" class="active" data-image="images/mega.jpg">Li Mega</a>
+      </div>
+      <div class="image-container">
+        <img src="images/mega.jpg" alt="LiXiang Mega" id="car-image">
+      </div>
+      <div class="car-details">
+          <h2 id="car-title">LiXiang Mega</h2>
+        <p id="car-status">Скоро в наличии</p>
+        <div class="button-container">
+          <a href="http://127.0.0.1:5500/lil8.html" class="button">Подробнее о модели</a>
+          <a href="#" class="button button-white">Получить предложение</a>
+        </div>
+      </div>
+  
+    </div>
+  
+    </footer>
+    <script>
+    // Получаем все элементы навигации
+    const modelLinks = document.querySelectorAll('.model-nav a');
+    const carImage = document.getElementById('car-image');
+    const carTitle = document.getElementById('car-title');
+    const carStatus = document.getElementById('car-status');
+
+    // Функция для смены изображения и текста
+    function changeModel(event) {
+      event.preventDefault(); // Предотвращаем переход по ссылке
+
+      // Убираем активный класс у всех кнопок
+      modelLinks.forEach(link => link.classList.remove('active'));
+
+      // Добавляем активный класс на выбранную кнопку
+      event.currentTarget.classList.add('active');
+
+      // Меняем изображение
+      const imageSrc = event.currentTarget.getAttribute('data-image');
+      carImage.src = imageSrc;
+
+      // Меняем заголовок и статус
+      const modelName = event.currentTarget.textContent;
+      carTitle.textContent = modelName;
+      carStatus.textContent = getStatus(modelName); // Функция для определения статуса
+    }
+
+    // Функция для определения статуса модели
+    function getStatus(modelName) {
+      // Здесь можно добавить логику для определения статуса
+      if (modelName === 'LiL8') {
+        return 'В наличии';
+      } else if (modelName === 'LiL9') {
+        return 'Ожидается';
+      } else {
+        return 'Скоро в наличии';
+      }
+    }
+
+    // Добавляем обработчик событий для каждой кнопки
+    modelLinks.forEach(link => {
+      link.addEventListener('click', changeModel);
+    });
+</script>
+
+</body>
+</html>
