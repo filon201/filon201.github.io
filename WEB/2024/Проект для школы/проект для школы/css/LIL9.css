@@ -1,0 +1,458 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Шапка */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Логотип */
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff6600; /* Оранжевый цвет для логотипа */
+}
+
+.logo-chinese {
+    font-family: 'Arial', sans-serif;
+    color: #fff; /* Белый цвет для китайского текста */
+}
+
+/* Навигация */
+nav {
+    background-color: #444;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 15px;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff6600;
+}
+
+/* Герой-секция */
+.hero {
+    background: url('../images/hero-bg.jpg') no-repeat center center/cover;
+    color: #701163;
+    padding: 150px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.hero .btn:hover {
+    background-color: #e65c00;
+}
+
+/* О модели */
+.about {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.about ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about ul li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Материалы */
+.materials {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.materials h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.materials .materials-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.materials .materials-item {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.materials .materials-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Комплектации */
+.configurations {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.configurations h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.configurations .config-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.configurations .config-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.configurations .config-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Технологии */
+.tech {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.tech h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.tech .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.tech .tech-item {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tech .tech-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Безопасность */
+.safety {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.safety h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.safety .safety-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.safety .safety-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.safety .safety-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Функции */
+.functions {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.functions h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.functions .func-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.functions .func-item {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.functions .func-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Галерея */
+.gallery {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.gallery h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.gallery .images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.gallery .images img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.gallery .images img:hover {
+    transform: scale(1.05);
+}
+
+/* Отзывы */
+.reviews {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.reviews h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.reviews .review-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.reviews .review-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.reviews .review-item p {
+    font-size: 1.1em;
+    margin: 0;
+}
+
+/* FAQ */
+.faq {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.faq h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.faq .faq-list {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq .faq-item {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.faq .faq-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Контакты */
+.contact {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact form input, .contact form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact form button {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact form button:hover {
+    background-color: #e65c00;
+}
+
+footer, .footer_info {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+  }
+  
+  .footer_content {
+    max-width: 800px;
+    margin: 0 auto; 
+  }
+  
+  .social_links {
+    list-style-type: none; 
+    padding: 0; 
+    margin: 10px 0; 
+  }
+  
+  .social_links li {
+    display: inline; 
+    margin: 0 10px; 
+  }
+  
+  .social_links a {
+    color: white;
+    text-decoration: none; 
+  }
+  
+  .social_links a:hover {
+    text-decoration: underline;
+  }
+  
+  .contact_info p {
+    margin: 5px 0;
+  }
