@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/Configurator model.css">
+    <title>Конфигуратор автомобиля</title>
+    <style>
+        /* Общие стили */
+       
+    </style>
+</head>
+<body>
+    <div class="logo">
+        DragonDrive <span class="logo-chinese">龙驱动</span>
+    </div>
+
+    <div class="navigation-buttons">
+        <button onclick="window.location.href='http://127.0.0.1:5500/Main.html'">Главная страница</button>
+        <button onclick="window.location.href='http://127.0.0.1:5500/Lixiang.html'">Главная модель</button>
+    </div>
+
+    <div class="configurator">
+        <div class="car-preview">
+            <!-- Основное изображение -->
+            <img id="car-image" src="img1/car_white.jpg" alt="LI L9">
+            <!-- Галерея миниатюр -->
+            <div id="gallery-thumbnails" class="gallery-thumbnails">
+                <!-- Миниатюры будут добавлены динамически -->
+            </div>
+        </div>
+
+        <div class="options">
+            <div class="option-section">
+                <h2>Цвет автомобиля</h2>
+                <div class="colors">
+                    <button data-color="silver" data-color-name="Silver Metallic" style="background-color: #aaabaf;" onclick="updateGallery('silver')"></button>
+                    <button data-color="gray" data-color-name="Gray Metallic" style="background-color: #535459;" onclick="updateGallery('gray')"></button>
+                    <button data-color="black" data-color-name="Black Metallic" style="background-color: #0a0a0a;" onclick="updateGallery('black')"></button>
+                    <button data-color="golden" data-color-name="Golden Metallic" style="background-color: #9f9386;" onclick="updateGallery('golden')"></button>
+                    <button data-color="blue" data-color-name="Tech Blue" style="background-color: #608bab;" onclick="updateGallery('blue')"></button>
+                    <button data-color="green" data-color-name="Deep Green" style="background-color: #1b3032;" onclick="updateGallery('green')"></button>
+                    <button data-color="purple" data-color-name="Purple Light" style="background-color: #573850;" onclick="updateGallery('purple')"></button>
+                </div>
+            </div>
+
+            <div class="option-section">
+                <h2>Диски</h2>
+                <div class="disks">
+                    <button data-disk="standard" data-disk-name="21 Silver-Grey Wheels" style="background-image: url('img2/21 Black-Grey Wheels 1.jpg');" onclick="updateGallery('disk-standard')"></button>
+                    <button data-disk="sport" data-disk-name="21 Black-Grey Wheels" style="background-image: url('img2/21 Black-Grey Wheels 2.jpg');" onclick="updateGallery('disk-sport')"></button>
+                </div>
+            </div>
+
+            <div class="option-section">
+                <h2>Салон</h2>
+                <div class="salon-materials">
+                    <button data-salon="leather-black" data-salon-name="Черная кожа" onclick="updateGallery('salon-leather-black')" style="background-color: #000;"></button>
+                    <button data-salon="leather-beige" data-salon-name="Оранжевая кожа" onclick="updateGallery('salon-leather-beige')" style="background-color: hsl(24, 100%, 41%);;"></button>
+                    <button data-salon="fabric-gray" data-salon-name="Белая кожа" onclick="updateGallery('salon-fabric-gray')" style="background-color: #ffffff;"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const carImage = document.getElementById('car-image');
+        const galleryThumbnails = document.getElementById('gallery-thumbnails');
+
+        // Данные для миниатюр, сгруппированные по цветам, дискам и салону
+        const galleryData = {
+            // Фотографии для цветов
+            silver: [
+                { src: 'img1/LI L9 Silver1.jpg', alt: 'Silver 1' },
+                { src: 'img1/LI L9 Silver 2.jpg', alt: 'Silver 2' },
+            ],
+            gray: [
+                { src: 'img1/LI L 9 Gray 1.jpg', alt: 'Gray 1' },
+                { src: 'img1/LI L 9 Gray 2.jpg', alt: 'Gray 2' },
+            ],
+            black: [
+                { src: 'img1/LI L9  Black 1.jpg', alt: 'Black 1' },
+                { src: 'img1/LI L9  Black 2.jpg', alt: 'Black 2' },
+            ],
+            golden: [
+                { src: 'img1/LI L9  Golden 1.jpg', alt: 'Golden 1' },
+                { src: 'img1/LI L9  Golden 2.jpg', alt: 'Golden 2' },
+            ],
+            blue: [
+                { src: 'img1/LI L9  Tech 1.jpg', alt: 'Blue 1' },
+                { src: 'img1/LI L9  Tech 2.jpg', alt: 'Blue 2' },
+            ],
+            green: [
+                { src: 'img1/LI L9  Deep 1.jpg', alt: 'Green 1' },
+                { src: 'img1/LI L9  Deep 2.jpg', alt: 'Green 2' },
+            ],
+            purple: [
+                { src: 'img1/LI L9 Purple 1.jpg', alt: 'Purple 1' },
+                { src: 'img1/LI L9 Purple 2.jpg', alt: 'Purple 2' },
+            ],
+
+            // Фотографии для дисков
+            'disk-standard': [
+                { src: 'img2/Black-Grey  1.jpg', alt: 'Silver-Grey Wheels 1' },
+                { src: 'img2/Black-Grey 2.jpg', alt: 'Silver-Grey Wheels 2' },
+                { src: 'img2/Black2.jpg', alt: 'Silver-Grey Wheels 3' },
+            ],
+            'disk-sport': [
+                { src: 'img2/Grey 1.jpg', alt: 'Black-Grey Wheels 1' },
+                { src: 'img2/Grey 2 .jpg', alt: 'Black-Grey Wheels 2' },
+                { src: 'img2/Black1.jpg', alt: 'Black-Grey Wheels 3' },
+            
+            ],
+
+            // Фотографии для салона
+            'salon-leather-black': [
+                { src: 'img3/black1.jpg', alt: 'Leather Black1' },
+                { src: 'img3/black2.jpg', alt: 'Leather Black2' },
+            ],
+            'salon-leather-beige': [
+                { src: 'img3/orang1.jpg', alt: 'Leather Beige1' },
+                { src: 'img3/orang2.jpg', alt: 'Leather Beige2' },
+            ],
+            'salon-fabric-gray': [
+                { src: 'img3/white1.jpg', alt: 'Fabric Gray1' },
+                { src: 'img3/white2.jpg', alt: 'Fabric Gray2' },
+            ],
+        };
+
+        // Функция для обновления галереи
+        function updateGallery(type) {
+            galleryThumbnails.innerHTML = ''; // Очищаем галерею
+
+            if (galleryData[type]) {
+                galleryData[type].forEach(item => {
+                    const img = document.createElement('img');
+                    img.src = item.src;
+                    img.alt = item.alt;
+                    img.onclick = () => changeMainImage(item.src);
+                    galleryThumbnails.appendChild(img);
+                });
+
+                // Устанавливаем первое изображение из галереи как основное
+                if (galleryData[type].length > 0) {
+                    changeMainImage(galleryData[type][0].src);
+                }
+            }
+        }
+
+        // Функция для изменения основного изображения
+        function changeMainImage(image) {
+            carImage.src = image;
+            document.querySelectorAll('.gallery-thumbnails img').forEach(thumb => thumb.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Инициализация галереи по умолчанию
+        updateGallery('silver');
+    </script>
+</body>
+</html>
