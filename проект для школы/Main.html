@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DragonDrive</title>
+    <link rel="stylesheet" href="css/Main.css">
+    <style>
+        .hidden_brands {
+            display: none; 
+        }
+        .hidden_services {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" id="show-brands-btn">Марки автомобилей</a></li> 
+                <li><a href="#" id="show-services-btn">Владельцам</a></li>
+                <li><a href="http://127.0.0.1:5500/News.html">Новости и обзоры</a></li>
+                <li><a href="#istor">История</a></li>
+                <li><a href="#" id="show-stations-btn">Зарядные станции</a></li>
+            </ul>
+            </ul>
+        </nav>
+        <div class="logo">
+            DragonDrive <span class="logo-chinese">龙驱动</span>
+        </div>
+    </header>
+    
+    <div id="brands" class="hidden_brands section">
+        <h2>Марки автомобилей</h2>
+        <div class="brand_list">
+            <div class="brand">
+                <img src="photo/cattouchret.webp" alt="Lixiang">
+                <h3>Lixiang</h3>
+                <p>Современный, стильный, экономичный, надежный.</p>
+                <a href="http://127.0.0.1:5500/Lixiang.html" class="btn">Подробнее</a>
+            </div>
+            <div class="brand">
+                <img src="photo/WfntZ017107540604761_l.jpg" alt="Zeekr">
+                <h3>Zeekr</h3>
+                <p>Электрический, технологичный, спортивный, элегантный.</p>
+                <a href="#" class="btn">Подробнее</a> 
+            </div>
+            <div class="brand">
+                <img src="photo/geely_coolray_v_trade-in_1_15283297430988190858.jpg" alt="Geely">
+                <h3>Geely</h3>
+                <p>Доступный, инновационный, комфортный, многофункциональный.</p>
+                <a href="#" class="btn">Подробнее</a>
+            </div>
+            <div class="brand">
+                <img src="photo/main.webp" alt="Haval">
+                <h3>Haval</h3>
+                <p>Прочный, внедорожный, просторный, удобный.</p>
+                <a href="#" class="btn">Подробнее</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="services" class="hidden_services section">
+        <h2>Для владельцев</h2>
+        <div class="service_list">
+            <div class="service">
+                <h3>Техническое обслуживание</h3>
+                <p>Проведение планового обслуживания вашего автомобиля.</p>
+                <a href="#" class="btn">Записаться</a>
+            </div>
+            <div class="service">
+                <h3>Ремонт</h3>
+                <p>Качественный ремонт автомобилей любых марок.</p>
+                <a href="#" class="btn">Получить консультацию</a>
+            </div>
+            <div class="service">
+                <h3>Консультации</h3>
+                <p>Профессиональные консультации по вопросам эксплуатации.</p>
+                <a href="#" class="btn">Спросить специалиста</a>
+            </div>
+        </div>
+    </div>
+    <section class="banner">
+        <h1>Идеальный автомобиль 2024</h1>
+        <p>Супер просторный и супер удобный</p>
+        <a href="http://127.0.0.1:5500/Family.html" class="btn">Узнать</a>
+    </section>
+    <div class="divider"></div> 
+
+    <section id="configurator" class="configurator">
+        <h2>Один клик к вашей новой мечте</h2>
+        <p>Создайте свою идеальную машину с помощью конфигуратора</p>
+        <a href="http://127.0.0.1:5500/Configurator%20model.html" id="show-brands" class="btn">Конфигуратор</a>
+    </section>
+    
+    <footer>
+        <p>Сведения о ценах на продукцию, содержащиеся на сайте, носят исключительно информационный характер. Указанные цены могут отличаться от действительных цен дилеров. Для получения подробной информации об актуальных ценах обращайтесь к официальным дилерам.</p>
+    </footer>
+    <footer class="footer_info">
+    <div class="footer_content">
+        <p>&copy; 2024 DragonDrive. Все права защищены.</p>
+        <ul class="social_links">
+            <li><a href="#">Telegram</a></li>
+            <li><a href="#">WhatsApp</a></li>
+            <li><a href="#">Vk</a></li>
+        </ul>
+        <div class="contact_info">
+            <p>Email: asalobov@gmail.com</p>
+            <p>Телефон: +123 456 7890</p>
+        </div>
+    </div>
+</footer>
+    <script>
+        document.getElementById('show-brands-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            const brandsDiv = document.getElementById('brands');
+            if (brandsDiv.style.display === 'none' || brandsDiv.style.display === '') {
+                brandsDiv.style.display = 'block'; 
+                this.textContent = 'Скрыть марки автомобилей'; 
+            } else {
+                brandsDiv.style.display = 'none'; 
+                this.textContent = 'Марки автомобилей'; 
+            }
+        });
+
+        
+        document.getElementById('show-services-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            const servicesDiv = document.getElementById('services');
+            if (servicesDiv.style.display === 'none' || servicesDiv.style.display === '') {
+                servicesDiv.style.display = 'block'; 
+                this.textContent = 'Скрыть владельцам'; 
+            } else {
+                servicesDiv.style.display = 'none'; 
+                this.textContent = 'Владельцам'; 
+            }
+        });
+            document.getElementById('configurator-btn').addEventListener('click', function(event) {
+        event.preventDefault();
+        const brandsSection = document.getElementById('brands');
+        brandsSection.classList.remove('hidden_brands'); 
+    });
+    </script>
+    <script>
+        document.getElementById('show-stations-btn').onclick = function() {
+            window.open('map.html', '_blank');
+        }
+    </script>
+</body>
+</html>

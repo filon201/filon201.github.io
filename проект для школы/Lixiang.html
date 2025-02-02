@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lixiang | DragonDrive</title>
+    <link rel="stylesheet" href="css/Lixiang.css">
+    <style>
+       
+        .model-nav a.active {
+            font-weight: bold;
+            color: #007BFF; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/Main.html">На главную</a></li>
+                <li><a href="/Service.html">Обслуживание</a></li>
+            </ul>
+        </nav>
+        <div class="logo">
+            DragonDrive <span class="logo-chinese">龙驱动</span>
+        </div>
+    </header>
+    <div class="container">
+        <div class="model-nav">
+            <a href="" data-image="images/lil9.jpg" data-status="Цена 8 299 000₽" data-details="/LIL9.html" data-configurator="/Configurator%20model.html">LiL9</a>
+            <a href="#" data-image="images/lil8.jpg" data-status="Цена 8 000 000₽" data-details="/LI%20L8.html" data-configurator="configurator_lil8.html">LiL8</a>
+            <a href="#" data-image="images/lil7.jpg" data-status="Цена 6 681 000₽" data-details="/LI%20L7.html" data-configurator="configurator_lil7.html">LiL7</a>
+            <a href="#" data-image="images/lil6.jpg" data-status="Цена 5 981 000₽" data-details="lil6.html" data-configurator="configurator_lil6.html">LiL6</a>
+            <a href="#" data-image="images/mega.jpg" data-status="Скоро в наличии" data-details="mega.html" data-configurator="configurator_mega.html">Li Mega</a>
+        </div>
+        <div class="image-container">
+            <img src="images/mega.jpg" alt="LiXiang Mega" id="car-image">
+        </div>
+        <div class="car-details">
+            <h2 id="car-title">LiXiang Mega</h2>
+            <p id="car-status">Скоро в наличии</p>
+            <div class="button-container">
+                <a href="mega.html" class="button" id="details-button">Подробнее о модели</a>
+                <a href="configurator_mega.html" class="button button-white" id="configurator-button">Конфигуратор</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        
+    </footer>
+    <script>
+        
+        const modelLinks = document.querySelectorAll('.model-nav a');
+        const carImage = document.getElementById('car-image');
+        const carTitle = document.getElementById('car-title');
+        const carStatus = document.getElementById('car-status');
+        const detailsButton = document.getElementById('details-button');
+        const configuratorButton = document.getElementById('configurator-button');
+
+        
+        function changeModel(event) {
+            event.preventDefault(); 
+
+         
+            modelLinks.forEach(link => link.classList.remove('active'));
+
+           
+            event.currentTarget.classList.add('active');
+
+           
+            const imageSrc = event.currentTarget.getAttribute('data-image');
+            carImage.src = imageSrc;
+
+           
+            const modelName = event.currentTarget.textContent;
+            carTitle.textContent = modelName;
+            carStatus.textContent = event.currentTarget.getAttribute('data-status');
+
+            
+            const detailsLink = event.currentTarget.getAttribute('data-details');
+            detailsButton.href = detailsLink;
+
+           
+            const configuratorLink = event.currentTarget.getAttribute('data-configurator');
+            configuratorButton.href = configuratorLink;
+        }
+        modelLinks.forEach(link => {
+            link.addEventListener('click', changeModel);
+        });
+    </script> 
+    <footer>
+        <p>Сведения о ценах на продукцию, содержащиеся на сайте, носят исключительно информационный характер. Указанные цены могут отличаться от действительных цен дилеров. Для получения подробной информации об актуальных ценах обращайтесь к официальным дилерам.</p>
+    </footer>
+    <footer class="footer_info">
+    <div class="footer_content">
+        <p>&copy; 2024 DragonDrive. Все права защищены.</p>
+        <ul class="social_links">
+            <li><a href="#">Telegram</a></li>
+            <li><a href="#">WhatsApp</a></li>
+            <li><a href="#">Vk</a></li>
+        </ul>
+        <div class="contact_info">
+            <p>Email: asalobov@gmail.com</p>
+            <p>Телефон: +123 456 7890</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
